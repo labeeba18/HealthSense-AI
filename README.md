@@ -1,119 +1,53 @@
-# HealthSense-AI
-AI-based health monitoring web app
+# HealthSense AI (Enterprise Disease Prediction System)
 
-
-# 🧠 Disease Prediction System
-
-A machine learning-based web application that predicts diseases (such as diabetes) using user input data. The system is built with multiple trained models and deployed using Streamlit to provide an interactive and user-friendly interface.
-
----
-
-
-## 📌 Features
-
-* 🤖 Multiple ML models (Logistic Regression, Decision Tree, Random Forest)
-* 📊 Real-time disease prediction based on user inputs
-* 🧠 Pre-trained models for accurate results
-* 📁 Structured data pipeline and preprocessing
-* 💾 Integrated database for storing patient data
-* 🖥️ Interactive UI using Streamlit
-
----
-
-## 🛠️ Technologies Used
-
-* **Frontend/UI:** Streamlit
-* **Programming Language:** Python
-* **Machine Learning:** Scikit-learn
-* **Data Handling:** NumPy, Pandas
-* **Database:** SQLite
-* **Version Control:** Git & GitHub
-
----
+This is a complete final year project showcasing a robust Machine Learning pipeline for predicting diseases (using the Pima Indians Diabetes dataset as the primary example). It features data preprocessing, classification models (Logistic Regression, Decision Tree, Random Forest), an SQLite database for history, and a modern, professional, dark-themed Streamlit web application.
 
 ## 📂 Project Structure
 
-```
+```text
 Disease Prediction System/
-│── assets/
-│── data/
-│   ├── diabetes.csv
-│   ├── X_train_scaled.npy
-│   ├── X_test_scaled.npy
-│   ├── y_train.npy
-│   ├── y_test.npy
-│
-│── models/
-│   ├── Logistic_Regression_model.pkl
-│   ├── Decision_Tree_model.pkl
-│   ├── Random_Forest_model.pkl
-│   ├── scaler.pkl
-│   ├── evaluation_results.json
-│
-│── src/
-│   ├── data_pipeline.py
-│   ├── database.py
-│   ├── train_models.py
-│
-│── app.py
-│── patients.db
-│── requirements.txt
-│── README.md
+├── data/                       # Contains raw and preprocessed datasets
+├── models/                     # Saved models (.pkl) and evaluation results (.json)
+├── src/                        # Source python scripts
+│   ├── data_pipeline.py        # Downloads, cleans, and scales data
+│   ├── train_models.py         # Trains models and generates evaluation metrics
+│   └── database.py             # SQLite database logic
+├── app.py                      # Main Streamlit web application
+├── patients.db                 # SQLite DB storing patient prediction history
+├── requirements.txt            # Python dependencies
+├── README.md                   # Setup details
+└── project_report.md           # Report for Viva and final documentation
 ```
 
----
+## 🚀 How to Run the Project
 
-## ⚙️ How It Works
-
-1. User enters health-related inputs
-2. Data is preprocessed using saved scaler
-3. Multiple ML models predict the outcome
-4. Best prediction is displayed via Streamlit UI
-5. Data can be stored in the database for future use
-
----
-
-## 🚀 Running the Project
-
-1. Clone the repository
-
-```
-git clone https://github.com/your-username/disease-prediction-system.git
-```
-
-2. Install dependencies
-
-```
+### 1. Install Dependencies
+Open your terminal/command prompt and run:
+```bash
 pip install -r requirements.txt
 ```
 
-3. Run the application
-
+### 2. Run the Data Pipeline
+This script downloads the dataset, handles missing values, scales it using `StandardScaler`, and prepares train/test splits.
+```bash
+python src/data_pipeline.py
 ```
-streamlit run app.py
+
+### 3. Train the Models
+Train Logistic Regression, Decision Tree, and Random Forest models. This script also generates prediction metrics and saves them.
+```bash
+python src/train_models.py
 ```
 
----
+### 4. Start the Application
+Initialize the Streamlit Web Application using Python:
+```bash
+py -m streamlit run app.py
+```
+This will automatically open the web application in your default browser.
 
-## 🎯 Purpose
-
-* To predict diseases using machine learning
-* To demonstrate end-to-end ML pipeline
-* To combine data science with a real-world web interface
-
----
-
-## 🧠 Future Scope
-
-* Add more disease prediction models
-* Improve accuracy with advanced algorithms
-* Deploy on cloud (Streamlit Cloud / AWS)
-* Add user login and history tracking
-
----
-
-## 👩‍💻 Author
-
-**Labeeba Aafeen**
-Data Science Student
-I & Web Development
+## ✨ Features
+- **Enterprise-Grade UI**: A completely custom, dark-mode inspired professional healthcare interface with a fully responsive card-based layout and smooth animations.
+- **AI Detection**: Predict if a patient is at risk of diabetes using top-tier ML algorithms with immediate, actionable AI Diagnosis Reports.
+- **Patient History Database**: Save and manage all predictions automatically via an internal SQLite database (`patients.db`).
+- **Analytics Dashboard**: Monitor real-time charts (Plotly) and global health metrics securely formatted within the application.
